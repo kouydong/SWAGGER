@@ -47,6 +47,7 @@ public class SwaggerTestController {
 
         String aptCd    = reqDto.getAptCd();
         String userId   = reqDto.getUserId();
+
         String jsonStr  = "{" +
                         "\"aptCd\" : \""+aptCd+"\"," +
                         "\"userId\" : \""+userId+"\"" +

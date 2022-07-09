@@ -22,30 +22,38 @@ public class SwaggerConfig {
     public Docket swaggerApi() {
         // Swagger API 2.0대일 경우 'OAS_30' 대신 'SWAGGER_2' 사용
         return new Docket(DocumentationType.OAS_30)
-                // 사용자 정의 메서드 설정
+                // Request애 대한 메타 데이터 정보 설정
                 .consumes(getConsumeContentTypes())
-                // 사용자 정의 메서드 설정
+                // Response에 대한 메타 데이터 정보 설정
                 .produces(getProduceContentTypes())
-                // 사용자 정의 함수 설정
-                .apiInfo(getSwaggerInfo()).select()
-                // API문서로 만들기 위한 베이스 패키지 설정
+                // Swagger의 일반적인 정보를 담는 메서드로 ApiInfo 객체를 리턴
+                .apiInfo(getSwaggerInfo())
+                // ApiInfo로 반환된 객체를 선택
+                .select()
+                // REST API문서로 만들기 위한 기본 패키지 설정
                 .apis(RequestHandlerSelectors.basePackage("com.example.swagger"))
                 // 경로 설정
-                //PathSelectors.any() 와 동일
-                .paths(PathSelectors.ant("/**"))
+                .paths(PathSelectors.ant("/**")) //PathSelectors.any() 와 동일
                 .build()
-                // 디폴트 메시지 설정
+                // Response에 기본 메시지 사용 여부(기본값 : false)
                 .useDefaultResponseMessages(false);
     }
-
+    //─────────────────────────────────────────────────────────────────────────────────────────────
+    //  기능 : Swagger의 일반적인 정보를 담는 메서드로 ApiInfo 객체를 리턴
+    //─────────────────────────────────────────────────────────────────────────────────────────────
     private ApiInfo getSwaggerInfo() {
         return new ApiInfoBuilder()
-                .title("Swagger Test API ")             // Swagger API main title 설정
-                .description("Swagger Test API입니다.")  // Swagger API main 부연 설명
-                .version("1.0")                         // Swagger API version 설정
+                // Swagger API main title 설정
+                .title("Swagger Test API ")
+                // Swagger API main 부연 설명
+                .description("Swagger Test API입니다.")
+                // Swagger API version 설정
+                .version("1.0")
                 .build();
     }
-
+    //─────────────────────────────────────────────────────────────────────────────────────────────
+    //  기능 : Request애 대한 메타 데이터 정보 설정
+    //─────────────────────────────────────────────────────────────────────────────────────────────
     private Set<String> getConsumeContentTypes() {
         Set<String> consumes = new HashSet<>();
         consumes.add("application/json;charset=UTF-8");
@@ -53,11 +61,16 @@ public class SwaggerConfig {
         return consumes;
     }
 
+    //─────────────────────────────────────────────────────────────────────────────────────────────
+    //  기능 : Response 대한 메타 데이터 정보 설정
+    //─────────────────────────────────────────────────────────────────────────────────────────────
     private Set<String> getProduceContentTypes() {
         Set<String> produces = new HashSet<>();
         produces.add("application/json;charset=UTF-8");
         return produces;
     }
+
+
 /*
     private SecurityContext securityContext() {
         return SecurityContext.builder()
