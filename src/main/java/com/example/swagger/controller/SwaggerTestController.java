@@ -37,6 +37,13 @@ public class SwaggerTestController {
                     @ApiImplicitParam(name = "aptCd" , value = "아파트코드5자리"),
                     @ApiImplicitParam(name = "userId", value = "암호화유저아이디")
             })
+/*
+    @Parameters({
+
+            @Parameter(name="userId", in= ParameterIn.PATH, description = "아파트코드5자리")
+
+    })
+*/
     //─────────────────────────────────────────────────────────────────────────
     //  기능 : Controller안의 메서드 설명시 사용
     //─────────────────────────────────────────────────────────────────────────
