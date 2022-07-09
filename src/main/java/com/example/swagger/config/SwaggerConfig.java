@@ -28,7 +28,7 @@ public class SwaggerConfig {
                 .produces(getProduceContentTypes())
                 // 사용자 정의 함수 설정
                 .apiInfo(getSwaggerInfo()).select()
-                // 베이스 패키지 설정
+                // API문서로 만들기 위한 베이스 패키지 설정
                 .apis(RequestHandlerSelectors.basePackage("com.example.swagger"))
                 // 경로 설정
                 //PathSelectors.any() 와 동일

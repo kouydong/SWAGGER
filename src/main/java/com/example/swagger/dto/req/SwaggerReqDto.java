@@ -7,6 +7,13 @@ import lombok.Setter;
 @Setter
 @Getter
 public class SwaggerReqDto {
-    @ApiModelProperty(value = "테스트파리머트설정", example = "1234")
-    private String parameter1;
+
+    @ApiModelProperty(example="12345")
+    private String aptCd;
+
+    @ApiModelProperty(example="jkjkljkljvklxj90eru")
+    private String userId;
+
+    private String notUsedParameter3;
+
 }

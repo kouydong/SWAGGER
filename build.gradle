@@ -30,10 +30,12 @@ dependencies {
 
 	// Gradle Swagger 3.0.0 의존성 주입
 	implementation group: 'io.springfox', name: 'springfox-boot-starter', version: '3.0.0'
+	implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '3.0.0'
+
 
     // Gradle Swagger 2.10.5 의존성 주입이 필요한 경우 사용
-	// implementation group: 'io.springfox', name: 'springfox-swagger2', version: '3.0.0'
-	// implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '3.0.0'
+	// implementation group: 'io.springfox', name: 'springfox-swagger2', version: '2.10.5'
+	// implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.10.5'
 }
 
 tasks.named('test') {
